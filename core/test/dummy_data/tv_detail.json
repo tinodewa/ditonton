@@ -1,0 +1,113 @@
+{
+    "adult": false,
+    "backdrop_path": null,
+    "created_by": [
+    {
+    "id": 1115357,
+    "credit_id": "55907adbc3a3685d450032d4",
+    "name": "Martin Rabbett",
+    "profile_path": null
+    },
+    {
+    "id": 976725,
+    "credit_id": "55907ae59251416489002b37",
+    "name": "Judith Paige Mitchell",
+    "profile_path": null
+    },
+    {
+    "id": 197209,
+    "credit_id": "55907dec9251414508001393",
+    "name": "Lane Slate",
+    "profile_path": null
+    }
+    ],
+    "episode_run_time": [
+    60
+    ],
+    "first_air_date": "1989-09-16",
+    "genres": [
+    {
+    "id": 18,
+    "name": "Drama"
+    }
+    ],
+    "homepage": "",
+    "id": 10764,
+    "in_production": false,
+    "languages": [
+    "en"
+    ],
+    "last_air_date": "1990-03-29",
+    "last_episode_to_air": {
+    "air_date": "1990-03-29",
+    "episode_number": 18,
+    "id": 436079,
+    "name": "Separations",
+    "overview": "Nina hesitates when Daniel proposes, a man uses his illness to blackmail his daughter, and Caitlin murders a patient when she disagrees with his family's decision to fight his liver disease.",
+    "production_code": "",
+    "runtime": 60,
+    "season_number": 1,
+    "show_id": 10764,
+    "still_path": null,
+    "vote_average": 0,
+    "vote_count": 0
+    },
+    "name": "Island Son",
+    "next_episode_to_air": null,
+    "networks": [
+    {
+    "id": 16,
+    "name": "CBS",
+    "logo_path": "/wWA5mILSAyahtdNQh1WiADi6PRI.png",
+    "origin_country": "US"
+    }
+    ],
+    "number_of_episodes": 18,
+    "number_of_seasons": 1,
+    "origin_country": [
+    "US"
+    ],
+    "original_language": "en",
+    "original_name": "Island Son",
+    "overview": "Island Son is a CBS television medical drama during its 1989-90 schedule.\n\nIsland Son marked the return to regular weekly series television of Richard Chamberlain, who had not so appeared since his Dr. Kildare series almost 25 years earlier. In the interim he had enjoyed a somewhat successful career in feature films, and had become widely known as \"The King of the Miniseries\" due to his success in that format.\n\nChamberlain once again portrayed a dedicated medical doctor, Dr. Daniel Kulani. Kulani was born in Hawaii and practiced on the mainland for many years prior to his return to work at the fictional Kamehameha Medical Center in Honolulu. Kulani's complicated life involved his stressful work environment; his adoptive parents, Tutu and Nana; his 18-year-old son, Sam; and his love interest, high school drama teacher Nina Delaney. Dr. Kulani's complicated life was never resolved to the satisfaction of the viewers because the program was canceled in March 1990.",
+    "popularity": 3.755,
+    "poster_path": null,
+    "production_companies": [
+    {
+    "id": 1193,
+    "logo_path": "/ctXTFMt91z96WMbMOlW0Morgwny.png",
+    "name": "Lorimar Television",
+    "origin_country": "US"
+    },
+    {
+    "id": 56679,
+    "logo_path": null,
+    "name": "Maili Point Productions",
+    "origin_country": ""
+    }
+    ],
+    "production_countries": [],
+    "seasons": [
+    {
+    "air_date": "1989-09-19",
+    "episode_count": 18,
+    "id": 21111,
+    "name": "Season 1",
+    "overview": "",
+    "poster_path": null,
+    "season_number": 1
+    }
+    ],
+    "spoken_languages": [
+    {
+    "english_name": "English",
+    "iso_639_1": "en",
+    "name": "English"
+    }
+    ],
+    "status": "Ended",
+    "tagline": "",
+    "type": "Scripted",
+    "vote_average": 0,
+    "vote_count": 0
+    }
