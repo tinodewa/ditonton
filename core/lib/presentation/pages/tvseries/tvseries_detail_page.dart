@@ -1,7 +1,5 @@
 // ignore_for_file: constant_identifier_names, library_private_types_in_public_api, prefer_const_constructors_in_immutables, prefer_const_constructors, use_key_in_widget_constructors, use_build_context_synchronously, prefer_is_empty, sized_box_for_whitespace, unnecessary_null_comparison
 
-import 'dart:developer';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
 import 'package:core/domain/entities/genre.dart';
@@ -26,7 +24,6 @@ class _TvseriesDetailPageState extends State<TvseriesDetailPage> {
   @override
   void initState() {
     super.initState();
-    log('halo');
     Future.microtask(() {
       Provider.of<TvseriesDetailNotifier>(context, listen: false)
           .fetchTvseriesDetail(widget.id);
