@@ -43,20 +43,24 @@ import 'package:core/presentation/provider/tvseries/tvseries_list_notifier.dart'
 import 'package:search/presentation/provider/tvseries/tvseries_search_notifier.dart';
 import 'package:core/presentation/provider/tvseries/watchlist_tvseries_notifier.dart';
 import 'package:get_it/get_it.dart';
+import 'package:http/io_client.dart';
+import 'package:core/data/datasources/http_ssl_pinning.dart';
 
 final locator = GetIt.instance;
 
-void init() {
+Future<void> init() async {
+  IOClient ioClient = await SslPinning.ioClient;
+
   /// provider
   // movies
-  locator.registerFactory(
+  locator.registerLazySingleton(
     () => MovieListNotifier(
       getNowPlayingMovies: locator(),
       getPopularMovies: locator(),
       getTopRatedMovies: locator(),
     ),
   );
-  locator.registerFactory(
+  locator.registerLazySingleton(
     () => MovieDetailNotifier(
       getMovieDetail: locator(),
       getMovieRecommendations: locator(),
@@ -65,36 +69,36 @@ void init() {
       removeWatchlist: locator(),
     ),
   );
-  locator.registerFactory(
+  locator.registerLazySingleton(
     () => MovieSearchNotifier(
       searchMovies: locator(),
     ),
   );
-  locator.registerFactory(
+  locator.registerLazySingleton(
     () => PopularMoviesNotifier(
       locator(),
     ),
   );
-  locator.registerFactory(
+  locator.registerLazySingleton(
     () => TopRatedMoviesNotifier(
       getTopRatedMovies: locator(),
     ),
   );
-  locator.registerFactory(
+  locator.registerLazySingleton(
     () => WatchlistMovieNotifier(
       getWatchlistMovies: locator(),
     ),
   );
 
   // tvseries
-  locator.registerFactory(
+  locator.registerLazySingleton(
     () => TvseriesListNotifier(
       getNowPlayingTvseries: locator(),
       getPopularTvseries: locator(),
       getTopRatedTvseries: locator(),
     ),
   );
-  locator.registerFactory(
+  locator.registerLazySingleton(
     () => TvseriesDetailNotifier(
       getTvseriesDetail: locator(),
       getTvseriesRecommendations: locator(),
@@ -103,36 +107,37 @@ void init() {
       removeWatchlist: locator(),
     ),
   );
-  locator.registerFactory(
+  locator.registerLazySingleton(
     () => TvseriesSearchNotifier(
       searchTvseries: locator(),
     ),
   );
-  locator.registerFactory(
+  locator.registerLazySingleton(
     () => PopularTvseriesNotifier(
       locator(),
     ),
   );
-  locator.registerFactory(
+  locator.registerLazySingleton(
     () => TopRatedTvseriesNotifier(
       getTopRatedTvseries: locator(),
     ),
   );
-  locator.registerFactory(
+  locator.registerLazySingleton(
     () => WatchlistTvseriesNotifier(
       getWatchlistTvseries: locator(),
     ),
   );
-  locator.registerFactory(
+  locator.registerLazySingleton(
     () => SearchMoviesBloc(
       locator(),
     ),
   );
-  locator.registerFactory(
+  locator.registerLazySingleton(
     () => SearchTvseriesBloc(
       locator(),
     ),
   );
+  locator.registerLazySingleton<IOClient>(() => ioClient);
 
   /// use case
   // movies
