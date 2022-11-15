@@ -7,6 +7,7 @@ import 'package:core/domain/repositories/movie_repository.dart';
 import 'package:core/domain/repositories/tvseries_repository.dart';
 import 'package:mockito/annotations.dart';
 import 'package:http/http.dart' as http;
+import 'dart:io';
 
 @GenerateMocks([
   MovieRepository,
@@ -17,6 +18,7 @@ import 'package:http/http.dart' as http;
   TvseriesLocalDataSource,
   DatabaseHelper,
 ], customMocks: [
-  MockSpec<http.Client>(as: #MockHttpClient)
+  MockSpec<http.Client>(as: #MockHttpClient),
+  MockSpec<HttpClient>(as: #MockHttp),
 ])
 void main() {}

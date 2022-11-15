@@ -39,6 +39,10 @@ class SearchMoviesBloc extends Bloc<SearchEvent, SearchState> {
 class SearchTvseriesBloc extends Bloc<SearchEvent, SearchState> {
   final SearchTvseries _searchTvseries;
 
+  EventTransformer<T> debounce<T>(Duration duration) {
+    return ((events, mapper) => events.debounceTime(duration).flatMap(mapper));
+  }
+
   SearchTvseriesBloc(this._searchTvseries) : super(SearchEmpty()) {
     on<onQueryChanged>(
       (event, emit) async {
@@ -56,6 +60,9 @@ class SearchTvseriesBloc extends Bloc<SearchEvent, SearchState> {
           },
         );
       },
+      transformer: debounce(
+        const Duration(milliseconds: 500),
+      ),
     );
   }
 }

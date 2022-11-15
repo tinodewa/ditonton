@@ -20,10 +20,12 @@ void main() {
 
   late TvseriesRemoteDataSourceImpl dataSource;
   late MockHttpClient mockHttpClient;
+  late MockHttp mockHttp;
 
   setUp(() {
     mockHttpClient = MockHttpClient();
-    dataSource = TvseriesRemoteDataSourceImpl(client: mockHttpClient);
+    mockHttp = MockHttp();
+    dataSource = TvseriesRemoteDataSourceImpl(client: mockHttp);
   });
 
   group('get Now Playing Tv Series', () {

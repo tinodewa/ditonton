@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:core/data/datasources/db/database_helper.dart';
 import 'package:core/data/datasources/movie_local_data_source.dart';
 import 'package:core/data/datasources/movie_remote_data_source.dart';
@@ -40,7 +42,6 @@ import 'package:core/presentation/provider/tvseries/tvseries_detail_notifier.dar
 import 'package:core/presentation/provider/tvseries/tvseries_list_notifier.dart';
 import 'package:search/presentation/provider/tvseries/tvseries_search_notifier.dart';
 import 'package:core/presentation/provider/tvseries/watchlist_tvseries_notifier.dart';
-import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 
 final locator = GetIt.instance;
@@ -192,5 +193,5 @@ void init() {
   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton(() => HttpClient());
 }
