@@ -1,10 +1,9 @@
 // ignore_for_file: constant_identifier_names, library_private_types_in_public_api, prefer_const_constructors
 
-import 'package:core/core.dart';
-import 'package:core/presentation/provider/tvseries/popular_tvseries_notifier.dart';
+import 'package:core/presentation/cubit/tvseries/tvseries_cubit.dart';
 import 'package:core/presentation/widgets/tvseries_card_list.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PopularTvseriesPage extends StatefulWidget {
   static const ROUTE_NAME = '/popular-tvseries';
@@ -19,9 +18,8 @@ class _PopularMoviesPageState extends State<PopularTvseriesPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        Provider.of<PopularTvseriesNotifier>(context, listen: false)
-            .fetchPopularTvseries());
+    Future.microtask(
+        () => context.read<TvseriesPopularCubit>().getTvseriesPopular());
   }
 
   @override
@@ -32,25 +30,26 @@ class _PopularMoviesPageState extends State<PopularTvseriesPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<PopularTvseriesNotifier>(
-          builder: (context, data, child) {
-            if (data.state == RequestState.Loading) {
+        child: BlocBuilder<TvseriesPopularCubit, TvseriesListState>(
+          builder: (context, state) {
+            if (state is TvseriesLoading) {
               return Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.state == RequestState.Loaded) {
+            } else if (state is TvseriesPopularHasData) {
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final movie = data.tvseries[index];
-                  return TvseriesCard(movie);
+                  final tvseries = state.popularTvseries;
+                  return TvseriesCard(tvseries[index]);
                 },
-                itemCount: data.tvseries.length,
+                itemCount: state.popularTvseries.length,
+              );
+            } else if (state is TvseriesError) {
+              return Expanded(
+                child: Text(state.message),
               );
             } else {
-              return Center(
-                key: Key('error_message'),
-                child: Text(data.message),
-              );
+              return Text('Failed');
             }
           },
         ),

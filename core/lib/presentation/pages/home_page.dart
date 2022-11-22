@@ -7,11 +7,8 @@ import 'package:core/presentation/pages/movies/watchlist_movies_page.dart';
 import 'package:search/presentation/pages/tvseries/search_tvseries_page.dart';
 import 'package:core/presentation/pages/tvseries/tvseries_page.dart';
 import 'package:core/presentation/pages/tvseries/watchlist_tvseries_page.dart';
-import 'package:core/presentation/provider/movies/movie_list_notifier.dart';
-import 'package:core/presentation/provider/tvseries/tvseries_list_notifier.dart';
 import 'package:core/common/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,21 +19,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Widget widgetForBody = MovieHome();
-
-  @override
-  void initState() {
-    super.initState();
-    Future.microtask(
-        () => Provider.of<MovieListNotifier>(context, listen: false)
-          ..fetchNowPlayingMovies()
-          ..fetchPopularMovies()
-          ..fetchTopRatedMovies());
-    Future.microtask(
-        () => Provider.of<TvseriesListNotifier>(context, listen: false)
-          ..fetchNowPlayingTvseries()
-          ..fetchPopularTvseries()
-          ..fetchTopRatedTvseries());
-  }
 
   @override
   Widget build(BuildContext context) {

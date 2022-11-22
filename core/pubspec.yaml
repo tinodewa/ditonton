@@ -28,8 +28,8 @@ dependencies:
   firebase_crashlytics: ^3.0.4
   sqflite_sqlcipher: ^2.1.1+1
   encrypt: ^5.0.1
-  # flutter_bloc: ^8.0.0
-  # rxdart: ^0.27.1
+  flutter_bloc: ^8.0.0
+  rxdart: ^0.27.1
 
   search:
     path: ../search
